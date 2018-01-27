@@ -172,11 +172,15 @@
           margin: 0;
         }
         .container {
-          position: fixed;
-          top: 50%;
-          left: 50%;
+          position: relative;
+          top: 150%;
+          width: 40%;
+
+          /*left: 50%;*/
           -webkit-transform: translate(-50%, -50%);
         }
+
+
         input {
           background-color: #126077;
           border: 1px solid #3F7F93;
@@ -228,13 +232,7 @@
           overflow: hidden;
           -webkit-transition: all 0.35s ease-in;
         }
-        .debug__content.is-active {
-          display: block;
-          max-height: 500px;
-        }
-        .debug__btn {
-          width: 100%;
-        }
+
         .spoken-response {
           max-height: 0;
           overflow: hidden;
@@ -274,14 +272,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">/\ TOP</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">BOTTOM \/</a>
             </li>
           </ul>
         </div>
@@ -292,38 +290,13 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h1 class="text-uppercase">
-              <strong>Hello</strong>
-            </h1>
+
 
           </div>
         </div>
       </div>
     </header>
 
-
-
-
-
-
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Let's Get In Touch!</h2>
-            <hr class="my-4">
-            <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 mr-auto text-center">
-            <p>
-              <a href="mailto:your-email@your-domain.com">ncarr@hartford.edu</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

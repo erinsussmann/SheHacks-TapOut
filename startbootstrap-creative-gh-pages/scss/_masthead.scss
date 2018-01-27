@@ -2,12 +2,13 @@
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url('../img/header.jpg');
+  background-image: url('../img/hackathon-nara-.gif');
   background-position: center center;
+  background-size: contain;
   @include background-cover;
   hr {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
   h1 {
     font-size: 2rem;

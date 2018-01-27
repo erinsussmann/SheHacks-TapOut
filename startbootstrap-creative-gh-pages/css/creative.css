@@ -172,17 +172,17 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/header.jpg");
+  background-image: url("../img/hackathon-nara-.gif");
   background-position: center center;
-  -webkit-background-size: cover;
+  -webkit-background-size: contain;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
 header.masthead hr {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 header.masthead h1 {
@@ -191,6 +191,17 @@ header.masthead h1 {
 
 header.masthead p {
   font-weight: 300;
+}
+
+header.picture2 {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 56px);
+  background-image: url("../img/hackathon-nara-2.gif");
+  background-position: center bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @media (min-width: 768px) {
