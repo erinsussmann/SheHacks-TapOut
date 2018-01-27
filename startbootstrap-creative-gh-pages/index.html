@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+    <!--Nara starts here-->
+      <title>Valerie</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        var accessToken = "70924c4dd3464e3b8cab9c94cc55ee13",
+          baseUrl = "https://api.api.ai/v1/",
+          $speechInput,
+          $recBtn,
+          recognition,
+          messageRecording = "Recording...",
+          messageCouldntHear = "I couldn't hear you, could you say that again?",
+          messageInternalError = "Oh no, there has been an internal server error",
+          messageSorry = "I'm sorry, I don't have the answer to that yet.";
+
+        $(document).ready(function() {
+          $speechInput = $("#speech");
+          $recBtn = $("#rec");
+
+          $speechInput.keypress(function(event) {
+            if (event.which == 13) {
+              event.preventDefault();
+              send();
+            }
+          });
+          $recBtn.on("click", function(event) {
+            switchRecognition();
+          });
+          $(".debug__btn").on("click", function() {
+            $(this).next().toggleClass("is-active");
+            return false;
+          });
+        });
+
+        function startRecognition() {
+          recognition = new webkitSpeechRecognition();
+          recognition.continuous = false;
+              recognition.interimResults = false;
+
+          recognition.onstart = function(event) {
+            respond(messageRecording);
+            updateRec();
+          };
+          recognition.onresult = function(event) {
+            recognition.onend = null;
+
+            var text = "";
+              for (var i = event.resultIndex; i < event.results.length; ++i) {
+                text += event.results[i][0].transcript;
+              }
+              setInput(text);
+            stopRecognition();
+          };
+          recognition.onend = function() {
+            respond(messageCouldntHear);
+            stopRecognition();
+          };
+          recognition.lang = "en-US";
+          recognition.start();
+        }
+
+        function stopRecognition() {
+          if (recognition) {
+            recognition.stop();
+            recognition = null;
+          }
+          updateRec();
+        }
+
+        function switchRecognition() {
+          if (recognition) {
+            stopRecognition();
+          } else {
+            startRecognition();
+          }
+        }
+
+        function setInput(text) {
+          $speechInput.val(text);
+          send();
+        }
+
+        function updateRec() {
+          $recBtn.text(recognition ? "Stop" : "Speak");
+        }
+
+        function send() {
+          var text = $speechInput.val();
+          $.ajax({
+            type: "POST",
+            url: baseUrl + "query",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            headers: {
+              "Authorization": "Bearer " + accessToken
+            },
+            data: JSON.stringify({query: text, lang: "en", sessionId: "yaydevdiner"}),
+
+            success: function(data) {
+              prepareResponse(data);
+            },
+            error: function() {
+              respond(messageInternalError);
+            }
+          });
+        }
+
+        function prepareResponse(val) {
+          var debugJSON = JSON.stringify(val, undefined, 2),
+            spokenResponse = val.result.speech;
+
+          respond(spokenResponse);
+          debugRespond(debugJSON);
+        }
+
+        function debugRespond(val) {
+          $("#response").text(val);
+        }
+
+        function respond(val) {
+          if (val == "") {
+            val = messageSorry;
+          }
+
+          if (val !== messageRecording) {
+            var msg = new SpeechSynthesisUtterance();
+            msg.voiceURI = "native";
+            msg.text = val;
+            msg.lang = "en-US";
+            window.speechSynthesis.speak(msg);
+          }
+
+          $("#spokenResponse").addClass("is-active").find(".spoken-response__text").html(val);
+        }
+      </script>
+      <style type="text/css">
+        html {
+          box-sizing: border-box;
+        }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+        body {
+          background-color: #192837;
+          font-family: "Titillium Web", Arial, sans-serif;
+          font-size: 20px;
+          margin: 0;
+        }
+        .container {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+        }
+        input {
+          background-color: #126077;
+          border: 1px solid #3F7F93;
+          color: #A6CAE6;
+          font-family: "Titillium Web";
+          font-size: 20px;
+          line-height: 43px;
+          padding: 0 0.75em;
+          width: 400px;
+          -webkit-transition: all 0.35s ease-in;
+        }
+        textarea {
+          background-color: #070F24;
+          border: 1px solid #122435;
+          color: #606B88;
+          padding: 0.5em;
+          width: 100%;
+          -webkit-transition: all 0.35s ease-in;
+        }
+        input:active, input:focus, textarea:active, textarea:focus {
+          outline: 1px solid #48788B;
+        }
+        .btn {
+          background-color: #126178;
+          border: 1px solid #549EAF;
+          color: #549EAF;
+          cursor: pointer;
+          display: inline-block;
+          font-family: "Titillium Web";
+          font-size: 20px;
+          line-height: 43px;
+          padding: 0 0.75em;
+          text-align: center;
+          text-transform: uppercase;
+          -webkit-transition: all 0.35s ease-in;
+        }
+        .btn:hover {
+          background-color: #1888A9;
+          color: #183035;
+        }
+        .debug {
+          bottom: 0;
+          position: fixed;
+          right: 0;
+        }
+        .debug__content {
+          font-size: 14px;
+          max-height: 0;
+          overflow: hidden;
+          -webkit-transition: all 0.35s ease-in;
+        }
+        .debug__content.is-active {
+          display: block;
+          max-height: 500px;
+        }
+        .debug__btn {
+          width: 100%;
+        }
+        .spoken-response {
+          max-height: 0;
+          overflow: hidden;
+          -webkit-transition: all 0.35s ease-in;
+        }
+        .spoken-response.is-active {
+          max-height: 400px;
+        }
+        .spoken-response__text {
+          background-color: #040E23;
+          color: #7584A2;
+          padding: 1em;
+        }
+      </style>
+      <!--Nara ends here-->
+  </head>
+
+  <body id="page-top">
+    <!--Nara starts here-->
+    <div class="container">
+      <input id="speech" type="text">
+      <button id="rec" class="btn">Speak</button>
+      <div id="spokenResponse" class="spoken-response">
+        <div class="spoken-response__text"></div>
+      </div>
+    </div>
+    <div class="debug">
+      <div class="debug__btn btn">
+        Debug JSON results
+      </div>
+      <div class="debug__content">
+        <textarea id="response" cols="40" rows="20"></textarea>
+      </div>
+    </div>
+    <!--Nara ends here-->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Hello</strong>
+            </h1>
+            
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Let's Get In Touch!</h2>
+            <hr class="my-4">
+            <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 mr-auto text-center">
+            <p>
+              <a href="mailto:your-email@your-domain.com">ncarr@hartford.edu</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+  </body>
+
+</html>
