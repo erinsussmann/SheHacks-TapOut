@@ -11,7 +11,7 @@ body {
 hr {
   max-width: 50px;
   border-width: 3px;
-  border-color: #F05F40;
+  border-color: #4f6863;
 }
 
 hr.light {
@@ -19,14 +19,14 @@ hr.light {
 }
 
 a {
-  color: #F05F40;
+  color: #;
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
 }
 
 a:hover {
-  color: #f05f40;
+  color: #4f6863;
 }
 
 h1,
@@ -38,14 +38,17 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
+/*The nice teal background*/
 .bg-primary {
   background-color: #9FD7CF !important;
 }
 
+/*A dark dark teal - almost gray - for the words "Let's get in touch!"*/
 .bg-dark {
   background-color: #212529 !important;
 }
 
+/*Pretty sure this is a transparent white... maybe for "contact"*/
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -81,7 +84,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  border-bottom: 1px solid rgba(33, 37, 41, 0.1);
+  border-bottom: 1px solid rgba(33, 37, 41, 0.1); /*A transparent white*/
   background-color: #fff;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   -webkit-transition: all 0.2s;
@@ -92,12 +95,12 @@ img::-moz-selection {
 #mainNav .navbar-brand {
   font-weight: 700;
   text-transform: uppercase;
-  color: #F05F40;
+  color: #4f6863;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: #f05f40;
+  color: #4f6863;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link,
@@ -110,12 +113,12 @@ img::-moz-selection {
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-  color: #F05F40;
+  color: #4f6863;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link.active,
 #mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
-  color: #F05F40 !important;
+  color: #4f6863 !important;
   background-color: transparent;
 }
 
@@ -151,10 +154,10 @@ img::-moz-selection {
     background-color: #fff;
   }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #F05F40;
+    color: #4f6863;
   }
   #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #f05f40;
+    color: #4f6863;
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
@@ -162,7 +165,7 @@ img::-moz-selection {
   }
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
   #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #F05F40;
+    color: #4f6863;
   }
 }
 
@@ -282,7 +285,7 @@ header.masthead p {
 }
 
 .text-primary {
-  color: #F05F40 !important;
+  color: #4f6863 !important;
 }
 
 .btn {
@@ -298,13 +301,13 @@ header.masthead p {
 }
 
 .btn-primary {
-  background-color: #F05F40;
-  border-color: #F05F40;
+  background-color: #4f6863;
+  border-color: #4f6863;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
-  background-color: #ee4b28 !important;
+  background-color: #337064 !important;
 }
 
 .btn-primary:active, .btn-primary:focus {
