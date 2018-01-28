@@ -172,7 +172,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/hackathon-nara-.gif");
+  background-image: url("../img/nara-hackathon.gif");
   background-position: center center;
   -webkit-background-size: contain;
   -moz-background-size: cover;

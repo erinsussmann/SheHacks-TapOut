@@ -24,7 +24,7 @@
     <!-- Custom styles for this template -->
     <link href="css/creative.css" rel="stylesheet">
     <!--Nara starts here-->
-      <title>Valerie</title>
+      <title>Nara</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <script type="text/javascript">
@@ -173,9 +173,9 @@
         }
         .container {
           position: relative;
-          top: 150%;
-          width: 40%;
-
+          top: 200%;
+          width: 12%;
+          margin-bottom: 30px;
           /*left: 50%;*/
           -webkit-transform: translate(-50%, -50%);
         }
@@ -187,7 +187,7 @@
           color: #A6CAE6;
           font-family: "Titillium Web";
           font-size: 20px;
-          line-height: 43px;
+          line-height: 20px;
           padding: 0 0.75em;
           width: 400px;
           -webkit-transition: all 0.35s ease-in;
@@ -206,6 +206,7 @@
         .btn {
           background-color: #126178;
           border: 1px solid #549EAF;
+          border-spacing: 15px;
           color: #549EAF;
           cursor: pointer;
           display: inline-block;
@@ -220,17 +221,6 @@
         .btn:hover {
           background-color: #1888A9;
           color: #183035;
-        }
-        .debug {
-          bottom: 0;
-          position: fixed;
-          right: 0;
-        }
-        .debug__content {
-          font-size: 14px;
-          max-height: 0;
-          overflow: hidden;
-          -webkit-transition: all 0.35s ease-in;
         }
 
         .spoken-response {
@@ -252,50 +242,34 @@
 
   <body id="page-top">
     <!--Nara starts here-->
-    <div class="container">
-      <input id="speech" type="text">
-      <button id="rec" class="btn">Speak</button>
-      <div id="spokenResponse" class="spoken-response">
-        <div class="spoken-response__text"></div>
-      </div>
-    </div>
-    <div class="debug">
-      <div class="debug__btn btn">
-        Debug JSON results
-      </div>
-      <div class="debug__content">
-        <textarea id="response" cols="40" rows="20"></textarea>
-      </div>
-    </div>
+
+
     <!--Nara ends here-->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+
+
+    <header class="masthead">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">/\ TOP</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">BOTTOM \/</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <header class="masthead text-center text-white d-flex">
-      <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-
-
-          </div>
+        <input id="speech" type="text">
+        <button id="rec" class="btn">Speak</button>
+        <div id="spokenResponse" class="spoken-response">
+          <div class="spoken-response__text"></div>
         </div>
       </div>
     </header>
+  <!--  <section img="" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+
+            <h2 class="section-heading text-white">We've got what you need!</h2>
+            <hr class="light my-4">
+            <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
     <!-- Bootstrap core JavaScript -->
