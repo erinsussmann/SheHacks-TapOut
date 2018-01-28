@@ -4,15 +4,15 @@
 }
 
 .btn {
-  font-weight: 700;
+  font-weight: 7px;
   text-transform: uppercase;
   border: none;
-  border-radius: 300px;
+  border-radius: 3px;
   @include sans-serif-font;
 }
 
 .btn-xl {
-  padding: 1rem 2rem;
+  padding: 1px 2px;
 }
 
 .btn-primary {
