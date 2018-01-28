@@ -170,8 +170,8 @@ img::-moz-selection {
 }
 
 header.masthead {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 56px);
+  padding-top: 10px;
+  padding-bottom: calc(10px - 5px);
   background-image: url("../img/nara-hackathon.gif");
   background-position: center center;
   -webkit-background-size: contain;
@@ -186,11 +186,11 @@ header.masthead hr {
 }
 
 header.masthead h1 {
-  font-size: 2rem;
+  font-size: 2px;
 }
 
 header.masthead p {
-  font-weight: 300;
+  font-weight: 3px;
 }
 
 header.picture2 {
@@ -202,9 +202,10 @@ header.picture2 {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  z-index: +1;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 7px) {
   header.masthead p {
     font-size: 1.15rem;
   }
@@ -212,7 +213,7 @@ header.picture2 {
 
 @media (min-width: 992px) {
   header.masthead {
-    height: 100vh;
+    height: 300vh;
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
@@ -235,7 +236,7 @@ header.picture2 {
 .portfolio-box {
   position: relative;
   display: block;
-  max-width: 650px;
+  max-width: 6px;
   margin: 0 auto;
 }
 
@@ -248,7 +249,7 @@ header.picture2 {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(240, 95, 64, 0.9);
+  background: rgba(240, 95, 64, 1);
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
@@ -258,13 +259,13 @@ header.picture2 {
   position: absolute;
   top: 50%;
   width: 100%;
-  transform: translateY(-50%);
+  /*transform: translateY(-50%);*/
   text-align: center;
 }
 
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-  padding: 0 15px;
+  padding: 0;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -296,19 +297,26 @@ header.picture2 {
 }
 
 .text-primary {
+  position: absolute;
+  top: 8px;
+  right:16px;
+
   color: #4f6863 !important;
 }
 
 .btn {
-  font-weight: 700;
+  font-weight: 7;
+  position: absolute;
+  top: 8px;
+  right: 16px;
   text-transform: uppercase;
   border: none;
-  border-radius: 300px;
+  border-radius: 3px;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-xl {
-  padding: 1rem 2rem;
+  padding: 0;
 }
 
 .btn-primary {
